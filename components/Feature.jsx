@@ -4,7 +4,7 @@ const Feature = () => {
     return (
         <div>
             {/* Call-to-Action Section */}
-            <section className="bg-blue-100 text-white text-blue-800 py-12 text-center">
+            <section className="bg-blue-100  text-blue-800 py-12 text-center">
                 <h2 className="text-2xl md:text-4xl font-bold">
                     Ready to Join Us?
                 </h2>
