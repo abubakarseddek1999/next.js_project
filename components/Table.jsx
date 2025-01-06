@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { MdDelete } from "react-icons/md";
 const Table = ({ donors }) => {
     return (
         <div className="overflow-x-auto">
@@ -10,6 +10,7 @@ const Table = ({ donors }) => {
                         <th className="px-4 py-3 text-left text-sm font-semibold uppercase">Username</th>
                         <th className="px-4 py-3 text-left text-sm font-semibold uppercase">Email</th>
                         <th className="px-4 py-3 text-left text-sm font-semibold uppercase">Phone</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold uppercase">delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +21,7 @@ const Table = ({ donors }) => {
                                 <td className="px-4 py-3 text-sm">{donor.username}</td>
                                 <td className="px-4 py-3 text-sm">{donor.email}</td>
                                 <td className="px-4 py-3 text-sm">{donor.phone}</td>
+                                <td className="px-4 py-3 text-sm"><MdDelete className='text-red-500 cursor-pointer' size={24} onClick={() => console.log(donor.id)} /></td>
                             </tr>
                         ))
                     ) : (
