@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -21,6 +22,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta property="Blood-donation" content="Donate blood" />
+        <meta
+          property="og:description"
+          content="Discover amazing features and services tailored for you."
+        />
+        <meta
+          property="og:image"
+          content="https://i.postimg.cc/FsHLKyJh/mypic-1.jpg"
+        />
+        <meta property="og:url" content="https://i.postimg.cc/FsHLKyJh/mypic-1.jpg" />
+        <meta property="og:type" content="website" />
+
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
