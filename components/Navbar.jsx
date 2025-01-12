@@ -5,6 +5,7 @@ const Navbar = () => {
     { name: 'Home', link: '/' },
     { name: 'About', link: 'about' },
     { name: 'Donner', link: 'donner' },
+    { name: 'Login', link: 'login', className: 'bg-white text-black p-2 rounded-md px-4 hover:bg-blue-500 hover:text-white' },
   ];
 
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-8">
           {navItems.map((item, index) => (
             <li key={index}>
-              <a href={item.link} className="hover:text-gray-300">
+              <a href={item.link} className={item.className}>
                 {item.name}
               </a>
             </li>
