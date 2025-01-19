@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 const NotFoundPage = () => {
     return (
         <div className='h-screen flex flex-col justify-center items-center'>

@@ -1,17 +1,28 @@
 "use client";
 import React, { useState } from "react";
 import Image from 'next/image';
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Page = () => {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log("username:", email, "Password:", password);
-        alert("Login Successful!");
         // Add your authentication logic here
+        const resp = await signIn('credentials', {
+            email,
+            password,
+            redirect: false,
+        });
+        if (resp.status === 200) {
+            alert('Login Successful!');
+            e.target.reset();
+            router.push('/');
+        }
     };
 
     return (

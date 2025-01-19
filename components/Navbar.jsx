@@ -1,11 +1,15 @@
+"use client";
+import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+  const session = useSession();
+  console.log(session);
   const navItems = [
     { name: 'Home', link: '/' },
     { name: 'About', link: 'about' },
     { name: 'Donner', link: 'donner' },
-    { name: 'Login', link: 'login', className: 'bg-white text-black p-2 rounded-md px-4 hover:bg-blue-500 hover:text-white' },
   ];
 
   return (
@@ -21,6 +25,15 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        {!session.data ?
+          <Link href="/login">
+            <button className="bg-white text-black p-2 rounded-md px-4 hover:bg-blue-500 hover:text-white">Login</button>
+          </Link>
+          :
+          <Link href="/logout">
+            <button onClick={() => signOut()} className="bg-white text-black p-2 rounded-md px-4 hover:bg-blue-500 hover:text-white">Logout</button>
+          </Link>
+        }
         <button
           className="md:hidden text-white focus:outline-none"
           aria-label="Toggle Menu"
